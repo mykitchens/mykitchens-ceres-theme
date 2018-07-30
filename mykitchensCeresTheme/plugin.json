@@ -1,0 +1,20 @@
+{
+    "version"           :   "0.0.1",
+    "license"           :   "MIT",
+    "name"              :   "mykitchensCeresTheme",
+    "shortDescription"  :   { "de": "Theme for mykitchens", "en": "TODO add manually" },
+    "namespace"         :   "mykitchensCeresTheme",
+    "author"            :   "Alex Ivchyn",
+    "price"             :   0,
+    "categories"        :   [3518],
+    "type"              :   "theme",
+    "serviceProvider"   :   "mykitchensCeresTheme\\Providers\\mykitchensCeresThemeServiceProvider",
+    "dataProviders"     :
+    [
+        {
+            "key"           :"mykitchensCeresTheme\\Containers\\mykitchensCeresThemeContainer",
+            "name"          :"Generated plugin container",
+            "description"   :"Add changes to the CSS file"
+        }
+    ]
+}
