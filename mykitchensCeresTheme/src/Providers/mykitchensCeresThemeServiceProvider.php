@@ -2,9 +2,13 @@
 
 namespace mykitchensCeresTheme\Providers;
 
+use IO\Services\ContentCaching\Services\Container;
 use Plenty\Plugin\ServiceProvider;
 use Plenty\Plugin\Events\Dispatcher;
 use IO\Helper\TemplateContainer;
+use IO\Helper\TemplateContainer;
+use IO\Extensions\Functions\Partial;
+use Plenty\Plugin\ConfigRepository;
 
 /**
  * Class mykitchensCeresThemeServiceProvider
@@ -16,14 +20,24 @@ class mykitchensCeresThemeServiceProvider extends ServiceProvider
 
     public function register()
     {
-        
+
     }
 
     public function boot(Dispatcher $dispatcher)
     {
-       	// Override template
-        $dispatcher->listen('IO.tpl.home', function (TemplateContainer $container) {
-            $container->setTemplate('mykitchensCeresTheme::Homepage.Homepage');
+
+        $enabledOverrides = explode(", ", $config->get("MykitchensCeresTheme.templates.override"));
+        // Override partials
+
+        $dispatcher->listen('IO.tpl.home', function (Partial $partial) use ($enabledOverrides)
+        {
+            $partial->set('footer', 'Ceres::PageDesign.Partials.Footer');
+
+            if (in_array("footer", $enabledOverrides) || in_array("all", $enabledOverrides))
+            {
+                $partial->set('footer', 'MykitchensCeresTheme::PageDesign.Partials.Footer');
+            }
+
             return false;
         }, self::PRIORITY);
     }
