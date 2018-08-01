@@ -23,7 +23,7 @@ class mykitchensCeresThemeServiceProvider extends ServiceProvider
 
     }
 
-    public function boot(Dispatcher $dispatcher)
+    public function boot(Twig $twig, Dispatcher $dispatcher, ConfigRepository $config)
     {
 
         $enabledOverrides = explode(", ", $config->get("MykitchensCeresTheme.templates.override"));
