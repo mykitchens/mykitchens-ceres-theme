@@ -29,7 +29,7 @@ class mykitchensCeresThemeServiceProvider extends ServiceProvider
         $enabledOverrides = explode(", ", $config->get("MykitchensCeresTheme.templates.override"));
         // Override partials
 
-        $dispatcher->listen('IO.tpl.home', function (Partial $partial) use ($enabledOverrides)
+        $dispatcher->listen('IO.init.templates', function (Partial $partial) use ($enabledOverrides)
         {
             $partial->set('footer', 'Ceres::PageDesign.Partials.Footer');
 
