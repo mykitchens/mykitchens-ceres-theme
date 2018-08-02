@@ -25,20 +25,11 @@ class MykitchensCeresThemeServiceProvider extends ServiceProvider
 
     public function boot(Twig $twig, Dispatcher $dispatcher)
     {
-
-        //$enabledOverrides = explode(", ", $config->get("MykitchensCeresTheme.templates.override"));
         // Override partials
 
         $dispatcher->listen('IO.init.templates', function (Partial $partial)
         {
-            //$partial->set('footer', 'Ceres::PageDesign.Partials.Footer');
-
-            //if (in_array("footer", $enabledOverrides) || in_array("all", $enabledOverrides))
-            //{
-                $partial->set('footer', 'MykitchensCeresTheme::PageDesign.Partials.Footer');
-            //}
-
-
+            $partial->set('footer', 'MykitchensCeresTheme::PageDesign.Partials.Footer');
         }, self::PRIORITY);
         return false;
     }
