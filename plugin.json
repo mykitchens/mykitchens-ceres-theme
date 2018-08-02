@@ -8,13 +8,5 @@
     "price"             :   0,
     "categories"        :   [3518],
     "type"              :   "theme",
-    "serviceProvider"   :   "MykitchensCeresTheme\\Providers\\mykitchensCeresThemeServiceProvider",
-    "dataProviders"     :
-    [
-        {
-            "key"           :"MykitchensCeresTheme\\Containers\\mykitchensCeresThemeContainer",
-            "name"          :"Generated plugin container",
-            "description"   :"Add changes to the CSS file"
-        }
-    ]
+    "serviceProvider"   :   "MykitchensCeresTheme\\Providers\\mykitchensCeresThemeServiceProvider"
 }
