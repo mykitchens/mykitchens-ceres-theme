@@ -1,13 +1,13 @@
 <?php
 
-namespace mykitchensCeresTheme\Containers;
+namespace MykitchensCeresTheme\Containers;
 
 use Plenty\Plugin\Templates\Twig;
 
-class mykitchensCeresThemeContainer
+class MykitchensCeresThemeContainer
 {
     public function call(Twig $twig):string
     {
-        return $twig->render('mykitchensCeresTheme::Theme');
+        return $twig->render('MykitchensCeresTheme::Theme');
     }
 }

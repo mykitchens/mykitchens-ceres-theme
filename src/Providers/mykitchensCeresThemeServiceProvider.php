@@ -1,6 +1,6 @@
 <?php
 
-namespace mykitchensCeresTheme\Providers;
+namespace MykitchensCeresTheme\Providers;
 
 use IO\Services\ContentCaching\Services\Container;
 use Plenty\Plugin\ServiceProvider;
@@ -14,7 +14,7 @@ use Plenty\Plugin\ConfigRepository;
  * Class mykitchensCeresThemeServiceProvider
  * @package mykitchensCeresTheme\Providers
  */
-class mykitchensCeresThemeServiceProvider extends ServiceProvider
+class MykitchensCeresThemeServiceProvider extends ServiceProvider
 {
     const PRIORITY = 0;
 
