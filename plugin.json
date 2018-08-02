@@ -8,5 +8,5 @@
     "price"             :   0,
     "categories"        :   [3518],
     "type"              :   "theme",
-    "serviceProvider"   :   "MykitchensCeresTheme\\Providers\\mykitchensCeresThemeServiceProvider"
+    "serviceProvider"   :   "MykitchensCeresTheme\\Providers\\MykitchensCeresThemeServiceProvider"
 }
