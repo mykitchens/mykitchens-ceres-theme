@@ -1,7 +1,7 @@
 {
     "version"           :   "0.0.1",
     "license"           :   "MIT",
-    "name"              :   "mykitchensCeresTheme",
+    "name"              :   "MykitchensCeresTheme",
     "shortDescription"  :   { "de": "Theme for mykitchens", "en": "TODO add manually" },
     "namespace"         :   "MykitchensCeresTheme",
     "author"            :   "Alex Ivchyn",
