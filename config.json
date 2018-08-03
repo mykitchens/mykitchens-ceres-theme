@@ -1,13 +1,24 @@
-[
-    {
-        "tab"                           : "Templates",
-        "key"                           : "templates.override",
-        "label"                         : "Override partials and templates",
-        "type"                          : "multi_select",
-        "possibleValues"                :
-        {
-            "footer"                    : "Footer"
-        },
-        "default"                       : ""
+{
+    "formatVersion": 1,
+    "menu": {
+        "Config.TemplatesTab": {
+            "label": "Config.TemplatesTab",
+            "formFields": {
+                "templates.override": {
+                    "type": "multiCheckBox",
+                    "required": false,
+                    "label": "Config.templatesOverrideLabel",
+                    "options": {
+                        "defaultValue": "",
+                        "checkBoxValues": [
+                            {
+                                "value": "footer",
+                                "caption": "Config.templatesOverridePossibleValueFooter"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
     }
-]
+}
