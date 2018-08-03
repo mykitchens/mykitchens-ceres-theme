@@ -2,18 +2,18 @@
     "formatVersion": 1,
     "menu": {
         "Config.TemplatesTab": {
-            "label": "Config.TemplatesTab",
+            "label": "Templates",
             "formFields": {
                 "templates.override": {
                     "type": "multiCheckBox",
                     "required": false,
-                    "label": "Config.templatesOverrideLabel",
+                    "label": "Override partials and templates",
                     "options": {
                         "defaultValue": "",
                         "checkBoxValues": [
                             {
                                 "value": "footer",
-                                "caption": "Config.templatesOverridePossibleValueFooter"
+                                "caption": "Footer"
                             }
                         ]
                     }
