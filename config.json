@@ -1,1 +1,13 @@
-[]
+[
+    {
+        "tab"                           : "Templates",
+        "key"                           : "templates.override",
+        "label"                         : "Override partials and templates",
+        "type"                          : "multi_select",
+        "possibleValues"                :
+        {
+            "footer"                    : "Footer"
+        },
+        "default"                       : ""
+    }
+]
