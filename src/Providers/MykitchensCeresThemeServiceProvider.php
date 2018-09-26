@@ -28,9 +28,6 @@ class MykitchensCeresThemeServiceProvider extends ServiceProvider
         $enabledOverrides = explode(", ", $config->get("MykitchensCeresTheme.templates.override"));
 
         // Override partials
-
-
-
         $dispatcher->listen('IO.init.templates', function (Partial $partial) use ($enabledOverrides)
         {
 
@@ -41,6 +38,20 @@ class MykitchensCeresThemeServiceProvider extends ServiceProvider
                 $partial->set('footer', 'MykitchensCeresTheme::PageDesign.Partials.Footer');
             }
         }, self::PRIORITY);
+
+        // Override template for content categories
+        $dispatcher->listen('IO.tpl.category.content', function (TemplateContainer $container) use ($enabledOverrides)
+        {
+            $container->setTemplate('category_content', 'Ceres::Categiry.Content.CategoryContent');
+
+            if (in_array("category_content", $enabledOverrides) || in_array("all", $enabledOverrides))
+            {
+                $container->setTemplate('category_content', 'MykitchensCeresTheme::Category.Content.CategoryContent');
+            }
+
+        }, self::PRIORITY);
+
+
         return false;
     }
 }

@@ -12,8 +12,12 @@
                         "defaultValue": "",
                         "checkBoxValues": [
                             {
-                                "value": "footer",
-                                "caption": "Footer"
+                                "value" : "footer",
+                                "caption" : "Footer"
+                            },
+                            {
+                                "value" : "category_content",
+                                "caption" : "ContentCategoryTemplate"
                             }
                         ]
                     }
