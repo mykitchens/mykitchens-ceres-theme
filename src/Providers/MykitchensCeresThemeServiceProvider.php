@@ -43,7 +43,7 @@ class MykitchensCeresThemeServiceProvider extends ServiceProvider
         // Override template for content categories
         $dispatcher->listen('IO.tpl.category.content', function (TemplateContainer $container) use ($enabledOverrides)
         {
-            $container->setTemplate('Ceres::Categiry.Content.CategoryContent');
+            $container->setTemplate('Ceres::Category.Content.CategoryContent');
 
             if (in_array("category_content", $enabledOverrides) || in_array("all", $enabledOverrides))
             {
