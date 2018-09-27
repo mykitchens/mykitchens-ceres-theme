@@ -51,5 +51,18 @@ class MykitchensCeresThemeServiceProvider extends ServiceProvider
             }
             return false;
         }, self::PRIORITY);
+
+        // Override single item page
+        $dispatcher->listen('IO.tpl.item', function (TemplateContainer $container) user ($enabledOverrides)
+        {
+            $container->setTemplate('Ceres::Item.SingleItem');
+
+            if (in_array("single_item_view", $enabledOverrides) || in_array("all", $enabledOverrides))
+            {
+                $container->setTemplate('MykitchensCeresTheme::Item.SingleItem');
+
+            }
+            return false;
+        }, self::PRIORITY);
     }
 }

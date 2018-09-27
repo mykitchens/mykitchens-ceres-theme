@@ -18,6 +18,10 @@
                             {
                                 "value": "category_content",
                                 "caption": "ContentCategoryTemplate"
+                            },
+                            {
+                                "value": "single_item_view",
+                                "caption": "Single item view"
                             }
                         ]
                     }
