@@ -16,8 +16,8 @@
                                 "caption" : "Footer"
                             },
                             {
-                                "value" : "category_content",
-                                "caption" : "ContentCategoryTemplate"
+                                "value": "category_content",
+                                "caption": "ContentCategoryTemplate"
                             }
                         ]
                     }
