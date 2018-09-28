@@ -20,8 +20,8 @@
                                 "caption": "ContentCategoryTemplate"
                             },
                             {
-                                "value": "single_item_view",
-                                "caption": "Single item view"
+                                "value": "single_item_wrapper",
+                                "caption": "Single item wrapper"
                             }
                         ]
                     }

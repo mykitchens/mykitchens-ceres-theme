@@ -55,11 +55,11 @@ class MykitchensCeresThemeServiceProvider extends ServiceProvider
         // Override single item page
         $dispatcher->listen('IO.tpl.item', function (TemplateContainer $container) use ($enabledOverrides)
         {
-            $container->setTemplate('Ceres::Item.SingleItemView');
+            $container->setTemplate('Ceres::Item.SingleItemWrapper');
 
-            if (in_array("single_item_view", $enabledOverrides) || in_array("all", $enabledOverrides))
+            if (in_array("single_item_wrapper", $enabledOverrides) || in_array("all", $enabledOverrides))
             {
-                $container->setTemplate('MykitchensCeresTheme::Item.SingleItemView');
+                $container->setTemplate('MykitchensCeresTheme::Item.SingleItemWrapper');
 
             }
             return false;
