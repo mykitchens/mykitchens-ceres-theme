@@ -9,6 +9,7 @@ use Plenty\Plugin\Templates\Twig;
 use IO\Helper\TemplateContainer;
 use IO\Extensions\Functions\Partial;
 use Plenty\Plugin\ConfigRepository;
+use IO\Helper\ComponentContainer;
 
 /**
  * Class mykitchensCeresThemeServiceProvider
@@ -52,7 +53,7 @@ class MykitchensCeresThemeServiceProvider extends ServiceProvider
             return false;
         }, self::PRIORITY);
 
-        // Override single item page
+        // Override single item Wrapper
         $dispatcher->listen('IO.tpl.item', function (TemplateContainer $container) use ($enabledOverrides)
         {
             $container->setTemplate('Ceres::Item.SingleItemWrapper');
@@ -61,6 +62,21 @@ class MykitchensCeresThemeServiceProvider extends ServiceProvider
             {
                 $container->setTemplate('MykitchensCeresTheme::Item.SingleItemWrapper');
 
+            }
+            return false;
+        }, self::PRIORITY);
+
+        // Override single item page
+        $dispatcher->listen('IO.Component.Import', function(ComponentContainer $container)
+        {
+            $container->setTemplate('Ceres::Item.Components.SingleItem');
+
+            if (in_array("single_item", $enabledOverrides) || in_array("all", $enabledOverrides))
+            {
+                if( $container->getOriginComponentTemplate() == 'Ceres::Item.Components.SingleItem')
+                {
+                    $container->setNewComponentTemplate('MykitchensCeresTheme::Item.Components.SingleItem');
+                }
             }
             return false;
         }, self::PRIORITY);

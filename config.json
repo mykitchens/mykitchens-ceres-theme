@@ -22,6 +22,10 @@
                             {
                                 "value": "single_item_wrapper",
                                 "caption": "Single item wrapper"
+                            },
+                            {
+                                "value": "single_item",
+                                "caption": "Single Item"
                             }
                         ]
                     }
