@@ -10,6 +10,7 @@ use IO\Helper\TemplateContainer;
 use IO\Extensions\Functions\Partial;
 use Plenty\Plugin\ConfigRepository;
 use IO\Helper\ComponentContainer;
+use IO\Services\ItemSearch\Helper\ResultFieldTemplate;
 
 /**
  * Class mykitchensCeresThemeServiceProvider
@@ -80,5 +81,12 @@ class MykitchensCeresThemeServiceProvider extends ServiceProvider
             }
             return false;
         }, self::PRIORITY);
+
+        $dispatcher->listen( 'IO.ResultFields.SingleItem', function(ResultFieldTemplate $templateContainer)
+        {
+            $templateContainer->setTemplates([
+                ResultFieldTemplate::TEMPLATE_SINGLE_ITEM   => 'MykitchensCeresTheme::ResultFields.SingleItem'
+            ]);
+        }, 0);
     }
 }
