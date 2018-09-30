@@ -29,12 +29,12 @@
                         <p class="single-description" v-if="currentVariation.texts.shortDescription !== ''" v-html="currentVariation.texts.shortDescription"></p>
                     {% endif %}
                     <hr>
-                    <div class="m-b-3">
+                    {# <div class="m-b-3">
                         <span class="articlenumber small text-muted">
                             <b>{{ trans("Ceres::Template.singleItemNumber") }}</b>
                             <span>${ currentVariation.variation.number }</span>
                         </span>
-                    </div>
+                    </div> #}
                     <!-- Variation -->
                     <div class="row m-b-1" v-if="variations.length > 0">
                         <variation-select template="#vue-variation-select" :attributes="attributeNameMap" :variations="variations" :preselect="currentVariation.variation.id" @is-valid-change="isVariationSelected = $event"></variation-select>
@@ -62,6 +62,7 @@
                         <sup>*</sup>
                         <span :content="currentVariation.prices.default.currency"></span>
                     </span>
+                    {#
                     <div class="base-price text-muted m-y-1" v-if="currentVariation.unit">
                         <div>
                             {{ trans("Ceres::Template.singleItemContent") }}
@@ -75,6 +76,7 @@
                             </span>
                         </div>
                     </div>
+                    #}
                     <slot name="AfterPrice"></slot>
                     <span v-if="currentVariation.variation.availability" :class="'availability tag availability_' + currentVariation.variation.availability.id">
                         <span>
