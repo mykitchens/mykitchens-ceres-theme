@@ -32,7 +32,8 @@ class MykitchensCeresThemeServiceProvider extends ServiceProvider
         $dispatcher->listen('IO.ResultFields.*', function(ResultFieldTemplate $templateContainer)
         {
             $templateContainer->setTemplates([
-                ResultFieldTemplate::TEMPLATE_SINGLE_ITEM => 'MykitchensCeresTheme::ResultFields.SingleItem'
+                ResultFieldTemplate::TEMPLATE_SINGLE_ITEM => 'MykitchensCeresTheme::ResultFields.SingleItem',
+                ResultFieldTemplate::TEMPLATE_LIST_ITEM => 'MykitchensCeresTheme::ResultFields.ListItem'
             ]);
         }, self::PRIORITY);
 
@@ -83,6 +84,20 @@ class MykitchensCeresThemeServiceProvider extends ServiceProvider
                 if( $container->getOriginComponentTemplate() == 'Ceres::Item.Components.SingleItem')
                 {
                     $container->setNewComponentTemplate('MykitchensCeresTheme::Item.Components.SingleItem');
+                }
+            }
+            return false;
+        }, self::PRIORITY);
+
+        // Override category item page
+        $dispatcher->listen('IO.Component.Import', function(ComponentContainer $container) use ($enabledOverrides)
+        {
+
+            if (in_array("category_item", $enabledOverrides) || in_array("all", $enabledOverrides))
+            {
+                if( $container->getOriginComponentTemplate() == 'Ceres::ItemList.Components.CategoryItem')
+                {
+                    $container->setNewComponentTemplate('MykitchensCeresTheme::ItemList.Components.CategoryItem');
                 }
             }
             return false;

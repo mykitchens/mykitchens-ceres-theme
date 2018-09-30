@@ -26,6 +26,10 @@
                             {
                                 "value": "single_item",
                                 "caption": "Single Item"
+                            },
+                            {
+                                "value": "category_item",
+                                "caption": "Category Item"
                             }
                         ]
                     }
