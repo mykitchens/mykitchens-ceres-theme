@@ -29,6 +29,13 @@ class MykitchensCeresThemeServiceProvider extends ServiceProvider
     {
         $enabledOverrides = explode(", ", $config->get("MykitchensCeresTheme.templates.override"));
 
+        $dispatcher->listen('IO.ResultFields.*', function(ResultFieldTemplate $templateContainer)
+        {
+            $templateContainer->setTemplates([
+                ResultFieldTemplate::TEMPLATE_SINGLE_ITEM => 'MykitchensCeresTheme::ResultFields.SingleItem'
+            ]);
+        }, self::PRIORITY);
+
         // Override partials
         $dispatcher->listen('IO.init.templates', function (Partial $partial) use ($enabledOverrides)
         {
@@ -80,10 +87,5 @@ class MykitchensCeresThemeServiceProvider extends ServiceProvider
             }
             return false;
         }, self::PRIORITY);
-
-        $dispatcher->listen('IO.ResultFields.SingleItem', function(ResultFieldTemplate $templateContainer)
-        {
-            $templateContainer->setTemplates([ResultFieldTemplate::TEMPLATE_SINGLE_ITEM => 'MykitchensCeresTheme::ResultFields.SingleItem']);
-        }, 0);
     }
 }
