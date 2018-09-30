@@ -68,7 +68,7 @@ class MykitchensCeresThemeServiceProvider extends ServiceProvider
         }, self::PRIORITY);
 
         // Override single item page
-        $dispatcher->listen('IO.Component.Import', function(ComponentContainer $container)
+        $dispatcher->listen('IO.Component.Import', function(ComponentContainer $container) use ($enabledOverrides)
         {
             $container->setTemplate('Ceres::Item.Components.SingleItem');
 
