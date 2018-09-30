@@ -81,11 +81,9 @@ class MykitchensCeresThemeServiceProvider extends ServiceProvider
             return false;
         }, self::PRIORITY);
 
-        $dispatcher->listen( 'IO.ResultFields.SingleItem', function(ResultFieldTemplate $templateContainer)
+        $dispatcher->listen('IO.ResultFields.SingleItem', function(ResultFieldTemplate $templateContainer)
         {
-            $templateContainer->setTemplates([
-                ResultFieldTemplate::TEMPLATE_SINGLE_ITEM   => 'MykitchensCeresTheme::ResultFields.SingleItem'
-            ]);
+            $templateContainer->setTemplates([ResultFieldTemplate::TEMPLATE_SINGLE_ITEM => 'MykitchensCeresTheme::ResultFields.SingleItem']);
         }, 0);
     }
 }
