@@ -62,6 +62,19 @@ class MykitchensCeresThemeServiceProvider extends ServiceProvider
             return false;
         }, self::PRIORITY);
 
+        // Override template for item categories
+        $dispatcher->listen('IO.tpl.category.item', function (TemplateContainer $container) use ($enabledOverrides)
+        {
+            $container->setTemplate('Ceres::Category.Item.CategoryItem');
+
+            if (in_array("category_item", $enabledOverrides) || in_array("all", $enabledOverrides))
+            {
+                $container->setTemplate('MykitchensCeresTheme::Category.Item.CategoryItem');
+            }
+            return false;
+        }, self::PRIORITY);
+
+
         // Override single item Wrapper
         $dispatcher->listen('IO.tpl.item', function (TemplateContainer $container) use ($enabledOverrides)
         {
