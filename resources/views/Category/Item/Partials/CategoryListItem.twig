@@ -95,7 +95,7 @@
         <div class="thumb-content">
             <a href="{{ itemUrl }}" class="thumb-title small">
                 <img alt="{{ item.data.item.manufacturer.externalName }}" title="{{ item.data.item.manufacturer.externalName }}" src="{{ item.data.item.manufacturer.logo }}" class="producer-image">
-                {{ ItemName.get(item.data | itemName, item.data.variation.bundleType) }}
+                <h2>{{ ItemName.get(item.data | itemName, item.data.variation.bundleType) }}</h2>
             </a>
             <div class="thumb-meta">
                 {{ LayoutContainer.show("Ceres::CategoryItem.BeforePrices", item.data) }}

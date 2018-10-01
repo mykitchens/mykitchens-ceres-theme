@@ -49,8 +49,8 @@
             <!-- ITEM DETAILS -->
             <div class="thumb-content">
                 <a :href="itemData | itemURL" class="thumb-title small">
-                <img :alt="itemData.item.manufacturer.externalName" :title="itemData.item.manufacturer.externalName" :src="itemData.item.manufacturer.logo" class="producer-image">
-                    ${ itemData | itemName }
+                    <img :alt="itemData.item.manufacturer.externalName" :title="itemData.item.manufacturer.externalName" :src="itemData.item.manufacturer.logo" class="producer-image">
+                    <h2>${ itemData | itemName }</h2>
                 </a>
                 <div class="thumb-meta">
                     <div class="prices">
