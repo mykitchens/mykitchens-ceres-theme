@@ -94,8 +94,7 @@
         <!-- ITEM DETAILS -->
         <div class="thumb-content">
             <a href="{{ itemUrl }}" class="thumb-title small">
-                {{ item.data.item.manufacturer.logo}}
-                {#<img :alt="itemData.item.manufacturer.externalName" :title="itemData.item.manufacturer.externalName" :src="itemData.item.manufacturer.logo" class="producer-image">#}
+                <img alt="{{ item.data.item.manufacturer.externalName }}" title="{{ item.data.item.manufacturer.externalName }}" src="{{ item.data.item.manufacturer.logo }}" class="producer-image">
                 {{ ItemName.get(item.data | itemName, item.data.variation.bundleType) }}
             </a>
             <div class="thumb-meta">

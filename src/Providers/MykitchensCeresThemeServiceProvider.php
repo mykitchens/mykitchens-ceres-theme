@@ -88,10 +88,10 @@ class MykitchensCeresThemeServiceProvider extends ServiceProvider
             return false;
         }, self::PRIORITY);
 
-        // Override single item page
+
         $dispatcher->listen('IO.Component.Import', function(ComponentContainer $container) use ($enabledOverrides)
         {
-
+            // Override single item page
             if (in_array("single_item", $enabledOverrides) || in_array("all", $enabledOverrides))
             {
                 if( $container->getOriginComponentTemplate() == 'Ceres::Item.Components.SingleItem')
@@ -99,13 +99,7 @@ class MykitchensCeresThemeServiceProvider extends ServiceProvider
                     $container->setNewComponentTemplate('MykitchensCeresTheme::Item.Components.SingleItem');
                 }
             }
-            return false;
-        }, self::PRIORITY);
-
-        // Override category item page
-        $dispatcher->listen('IO.Component.Import', function(ComponentContainer $container) use ($enabledOverrides)
-        {
-
+            // Override category item page
             if (in_array("category_item", $enabledOverrides) || in_array("all", $enabledOverrides))
             {
                 if( $container->getOriginComponentTemplate() == 'Ceres::ItemList.Components.CategoryItem')
