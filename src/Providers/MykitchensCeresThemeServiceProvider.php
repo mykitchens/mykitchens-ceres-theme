@@ -11,6 +11,7 @@ use IO\Extensions\Functions\Partial;
 use Plenty\Plugin\ConfigRepository;
 use IO\Helper\ComponentContainer;
 use IO\Services\ItemSearch\Helper\ResultFieldTemplate;
+use MykitchensCeresTheme\Contexts\ItemCompareListContext;
 
 /**
  * Class mykitchensCeresThemeServiceProvider
@@ -19,6 +20,11 @@ use IO\Services\ItemSearch\Helper\ResultFieldTemplate;
 class MykitchensCeresThemeServiceProvider extends ServiceProvider
 {
     const PRIORITY = 0;
+
+    private static $templateKeyToViewMap =
+    [
+        'tpl.compare-list'  => ['CompareList.CompareListView',   ItemCompareListContext::class] // provide template to use for comparelist
+    ];
 
     public function register()
     {

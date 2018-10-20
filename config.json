@@ -30,6 +30,10 @@
                             {
                                 "value": "category_item",
                                 "caption": "Category Item"
+                            },
+                            {
+                                "value": "single_item_view",
+                                "caption": "Single Item View"
                             }
                         ]
                     }
