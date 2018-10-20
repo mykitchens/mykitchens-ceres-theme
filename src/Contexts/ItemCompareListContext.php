@@ -1,8 +1,9 @@
 <?php
 
-namespace Ceres\Contexts;
+namespace MykitchensCeresTheme\Contexts;
 
 use IO\Helper\ContextInterface;
+use Ceres\Contexts\GlobalContext;
 
 class ItemCompareListContext extends GlobalContext implements ContextInterface
 {
