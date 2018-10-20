@@ -1,6 +1,6 @@
 <?php
 
-namespace MykitchensCeresTheme\Contexts;
+namespace Ceres\Contexts;
 
 use IO\Helper\ContextInterface;
 
