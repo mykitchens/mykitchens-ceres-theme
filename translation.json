@@ -1,0 +1,14 @@
+{
+    "sections":
+    [
+        {
+            "name": "Config.compare",
+            "prefix": "compare"
+        }
+    ],
+    "nonTranslatableKeys":
+    [
+            "brandName1",
+            "brandName2"
+    ]
+}

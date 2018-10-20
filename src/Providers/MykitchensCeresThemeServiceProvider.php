@@ -88,6 +88,19 @@ class MykitchensCeresThemeServiceProvider extends ServiceProvider
             return false;
         }, self::PRIORITY);
 
+        // Override single item view
+        $dispatcher->listen('IO.tpl.item', function (TemplateContainer $container) use ($enabledOverrides)
+        {
+            $container->setTemplate('Ceres::Item.SingleItemView');
+
+            if (in_array("single_item_view", $enabledOverrides) || in_array("all", $enabledOverrides))
+            {
+                $container->setTemplate('MykitchensCeresTheme::Item.SingleItemView');
+
+            }
+            return false;
+        }, self::PRIORITY);
+
 
         $dispatcher->listen('IO.Component.Import', function(ComponentContainer $container) use ($enabledOverrides)
         {
