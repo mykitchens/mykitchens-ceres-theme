@@ -2,6 +2,7 @@
 
 {{ component( "Ceres::Item.Components.VariationSelect" ) }}
 {{ component( "Ceres::Item.Components.ItemImageCarousel" ) }}
+{{ component( "Ceres::Item.Components.AddToWishList" ) }}
 {{ component( "MykitchensCeresTheme::Item.Components.AddToCompareList" ) }}
 {{ component( "Ceres::Item.Components.OrderProperties" ) }}
 {{ component( "Ceres::Item.Components.OrderPropertyList" ) }}
@@ -22,4 +23,5 @@
     <template slot="AddDetailTabsContent">{{ LayoutContainer.show("Ceres::SingleItem.AddDetailTabsContent", item.documents[0].data) }}</template>
     <div slot="ItemListContainer">{{ LayoutContainer.show("Ceres::SingleItem.ItemListContainer", item) }}</div>
     <div slot="FeedbackContainer">{{ LayoutContainer.show("Ceres::SingleItem.FeedbackContainer", item) }}</div>
+    <div>Alex Test</div>
 </single-item>
