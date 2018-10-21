@@ -97,6 +97,7 @@
                     {% if "wish-list" in enabledRoutes or "all" in enabledRoutes %}
                         <div class="row">
                             <add-to-wish-list :variation-id="currentVariation.variation.id"></add-to-wish-list>
+                            <add-to-compare-list :variation-id="currentVariation.variation.id"></add-to-compare-list>
                         </div>
                     {% endif %}
                 <!-- ./ITEM DETAIL -->
