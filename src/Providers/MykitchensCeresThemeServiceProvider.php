@@ -110,8 +110,6 @@ class MykitchensCeresThemeServiceProvider extends ServiceProvider
 
         $dispatcher->listen('IO.Component.Import', function(ComponentContainer $container) use ($enabledOverrides)
         {
-            $container->setNewComponentTemplate('MykitchensCeresTheme::Item.Components.AddToCompareList');
-
             // Override single item page
             if (in_array("single_item", $enabledOverrides) || in_array("all", $enabledOverrides))
             {
