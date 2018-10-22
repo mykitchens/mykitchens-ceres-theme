@@ -1,6 +1,6 @@
-import TranslationService from "services/TranslationService";
+import TranslationService from "../services/TranslationService";
 
-const NotificationService = require("services/NotificationService");
+const NotificationService = require("../services/NotificationService");
 
 Vue.component("add-to-compare-list", {
 
