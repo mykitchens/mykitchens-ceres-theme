@@ -1,6 +1,6 @@
 <script type="x/template" id="vue-add-to-compare-list">
     <div class="col-xs-12">
-        <a class="text-muted small add-to-compare-list" :class="{active: isVariationInCompareList}" @click.prevent="switchState()" data-toggle="tooltip" data-placement="top" title="">
+        <a class="text-muted small add-to-compare-list" :class="/*{active: isVariationInCompareList}*/" @click.prevent="switchState()" data-toggle="tooltip" data-placement="top" title="">
             <i v-waiting-animation="isLoading" class="fa fa-balance-scale"></i>
             {{ trans("MykitchensCeresTheme::Template.singleItemCompareList") }}
         </a>
