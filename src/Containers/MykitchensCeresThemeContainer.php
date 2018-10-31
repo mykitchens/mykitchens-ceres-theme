@@ -8,6 +8,6 @@ class MykitchensCeresThemeContainer
 {
     public function call(Twig $twig):string
     {
-        return $twig->render('MykitchensCeresTheme::content.VueScripts');
+        return $twig->render('MykitchensCeresTheme::VueScripts');
     }
 }
