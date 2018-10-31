@@ -8,5 +8,13 @@
     "price"             :   0,
     "categories"        :   [3518],
     "type"              :   "theme",
-    "serviceProvider"   :   "MykitchensCeresTheme\\Providers\\MykitchensCeresThemeServiceProvider"
+    "serviceProvider"   :   "MykitchensCeresTheme\\Providers\\MykitchensCeresThemeServiceProvider",
+    "dataProviders"         :
+    [
+        {
+            "key"           :"MykitchensCeresTheme\\Containers\\MykitchensCeresThemeContainer",
+            "name"          :"Mykitchens vue components",
+            "description"   :"add new Vue components"
+        }
+    ]
 }
