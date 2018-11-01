@@ -1,0 +1,126 @@
+<script>
+const state =
+    {
+        compareListIds: [],
+        compareListItems: []
+    };
+
+const mutations =
+    {
+        setcompareListItems(state, compareListItems)
+        {
+            state.compareListItems = compareListItems;
+        },
+
+        setcompareListIds(state, compareListIds)
+        {
+            state.compareListIds = compareListIds.map(Number);
+        },
+
+        removecompareListItem(state, compareListItem)
+        {
+            state.compareListItems = state.compareListItems.filter(item => item !== compareListItem);
+        },
+
+        removecompareListId(state, id)
+        {
+            state.compareListIds = state.compareListIds.filter(compareListId => compareListId !== id);
+        },
+
+        addcompareListItemToIndex(state, compareListItem, index)
+        {
+            state.compareListItems.splice(index, 0, compareListItem);
+        },
+
+        addcompareListId(state, id)
+        {
+            state.compareListIds.push(id);
+        }
+    };
+
+const actions =
+    {
+        initcompareListItems({commit}, ids)
+        {
+            return new Promise((resolve, reject) =>
+            {
+                if (ids && ids[0])
+                {
+                    commit("setcompareListIds", ids);
+
+                    ApiService.get("/rest/io/variations/", {variationIds: ids, template: "Ceres::compareList.compareList"})
+                        .done(data =>
+                        {
+                            commit("setcompareListItems", data.documents);
+                            resolve(data);
+                        })
+                        .fail(error =>
+                        {
+                            reject(error);
+                        });
+                }
+                else
+                {
+                    resolve();
+                }
+            });
+        },
+
+        removeCompareListItem({commit}, {id, compareListItem, index})
+        {
+            return new Promise((resolve, reject) =>
+            {
+                if (compareListItem)
+                {
+                    commit("removeCompareListItem", compareListItem);
+                }
+
+                ApiService.delete("/rest/io/itemCompareList/" + id)
+                    .done(data =>
+                    {
+                        commit("removeCompareListId", id);
+                        resolve(data);
+                    })
+                    .fail(error =>
+                    {
+                        if (index)
+                        {
+                            commit("addCompareListItemToIndex", compareListItem, index);
+                        }
+                        reject(error);
+                    });
+            });
+        },
+
+        addToCompareList({commit}, id)
+        {
+            return new Promise((resolve, reject) =>
+            {
+                commit("addCompareListId", id);
+                ApiService.post("/rest/io/itemCompareList", {variationId: id})
+                    .done(data =>
+                    {
+                        resolve(data);
+                    })
+                    .fail(error =>
+                    {
+                        commit("removeCompareListId", id);
+                        reject(error);
+                    });
+            });
+        }
+    };
+
+const getters =
+    {
+        compareListCount: state => state.compareListIds.length
+    };
+
+export default
+{
+    state,
+    mutations,
+    actions,
+    getters
+};
+</script>

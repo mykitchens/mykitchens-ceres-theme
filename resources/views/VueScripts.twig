@@ -1,1 +1,6 @@
+{% import "MykitchensCeresTheme::Store.Modules.CompareListModule" as CompareList %}
+
+<script>
+    store.registerModule('compareList', CompareList, {preserveState: true});
+</script>
 {% include "MykitchensCeresTheme::Item.Components.AddToCompareList" %}
