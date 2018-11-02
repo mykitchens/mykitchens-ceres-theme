@@ -1,114 +1,89 @@
 <script>
-    Vue.component("add-to-compare-list", {
+"use strict";
 
-        props: {
-            template: {
-                type: String,
-                default: "#vue-add-to-compare-list"
-            },
-            variationId: Number
-        },
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-        data()
-        {
-            return {
-                isLoading: false
-            };
-        },
+Vue.component("add-to-compare-list", {
 
-        computed:
-        {
-            isVariationInCompareList()
-            {
-                return this.compareListIds.includes(this.variationId);
-            },
+props: {
+    template: {
+        type: String,
+        default: "#vue-add-to-compare-list"
+    },
+    variationId: Number
+},
 
-            ...Vuex.mapState({
-                compareListIds: state => state.compareList.compareListIds
-            })
-        },
+data: function data() {
+    return {
+        isLoading: false
+    };
+},
 
-        watch:
-        {
-            isVariationInCompareList()
-            {
-                this.changeTooltipText();
-            }
-        },
 
-        created()
-        {
-            this.$options.template = this.template;
-        },
+computed: _extends({
+    isVariationInCompareList: function isVariationInCompareList() {
+        return this.compareListIds.includes(this.variationId);
+    }
+}, Vuex.mapState({
+    compareListIds: function compareListIds(state) {
+        return state.compareList.compareListIds;
+    }
+})),
 
-        methods:
-        {
-            switchState()
-            {
-                if (this.isVariationInCompareList)
-                {
-                    this.removeFromCompareList();
-                }
-                else
-                {
-                    this.addToCompareList();
-                }
-            },
+watch: {
+    isVariationInCompareList: function isVariationInCompareList() {
+        this.changeTooltipText();
+    }
+},
 
-            addToCompareList()
-            {
-                if (!this.isLoading)
-                {
-                    this.isLoading = true;
-                    this.$store.dispatch("addToCompareList", parseInt(this.variationId)).then(
-                        response =>
-                        {
-                            this.isLoading = false;
+created: function created() {
+    this.$options.template = this.template;
+},
 
-                            NotificationService.success(
-                                TranslationService.translate("MykitchensCeresTheme::Template.singleItemCompareListAdded")
-                            );
-                        },
-                        error =>
-                        {
-                            this.isLoading = false;
-                        });
-                }
-            },
 
-            removeFromCompareList()
-            {
-                if (!this.isLoading)
-                {
-                    this.isLoading = true;
-                    this.$store.dispatch("removeCompareListItem", {id: parseInt(this.variationId)}).then(response =>
-                    {
-                        this.isLoading = false;
-
-                        NotificationService.success(
-                            TranslationService.translate("MykitchensCeresTheme::Template.singleItemCompareListRemoved")
-                        );
-                    },
-                    error =>
-                    {
-                        this.isLoading = false;
-                    });
-                }
-            },
-
-            changeTooltipText()
-            {
-                const tooltipText = TranslationService.translate(
-                    "MykitchensCeresTheme::Template." + (this.isVariationInCompareList ? "singleItemCompareListRemove" : "singleItemCompareListAdd")
-                );
-
-                $(".add-to-compare-list")
-                    .attr("data-original-title", tooltipText)
-                    .tooltip("hide")
-                    .tooltip("setContent");
-            }
+methods: {
+    switchState: function switchState() {
+        if (this.isVariationInCompareList) {
+            this.removeFromCompareList();
+        } else {
+            this.addToCompareList();
         }
-    });
+    },
+    addToCompareList: function addToCompareList() {
+        var _this = this;
+
+        if (!this.isLoading) {
+            this.isLoading = true;
+            this.$store.dispatch("addToCompareList", parseInt(this.variationId)).then(function (response) {
+                _this.isLoading = false;
+
+                NotificationService.success(TranslationService.translate("MykitchensCeresTheme::Template.singleItemCompareListAdded"));
+            }, function (error) {
+                _this.isLoading = false;
+            });
+        }
+    },
+    removeFromCompareList: function removeFromCompareList() {
+        var _this2 = this;
+
+        if (!this.isLoading) {
+            this.isLoading = true;
+            this.$store.dispatch("removeCompareListItem", { id: parseInt(this.variationId) }).then(function (response) {
+                _this2.isLoading = false;
+
+                NotificationService.success(TranslationService.translate("MykitchensCeresTheme::Template.singleItemCompareListRemoved"));
+            }, function (error) {
+                _this2.isLoading = false;
+            });
+        }
+    },
+    changeTooltipText: function changeTooltipText() {
+        var tooltipText = TranslationService.translate("MykitchensCeresTheme::Template." + (this.isVariationInCompareList ? "singleItemCompareListRemove" : "singleItemCompareListAdd"));
+
+        $(".add-to-compare-list").attr("data-original-title", tooltipText).tooltip("hide").tooltip("setContent");
+    }
+}
+});
 </script>
 <script type="x/template" id="vue-add-to-compare-list">
     <div class="col-xs-12">

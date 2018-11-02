@@ -2,7 +2,7 @@ import TranslationService from "../../services/TranslationService";
 
 const NotificationService = require("../../services/NotificationService");
 
-Vue.component("add-to-compare-list", {
+Vue.component("add-to-compare-listt", {
 
     props: {
         template: {
