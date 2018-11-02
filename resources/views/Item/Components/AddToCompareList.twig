@@ -1,11 +1,3 @@
-<script type="x/template" id="vue-add-to-compare-list">
-    <div class="col-xs-12">
-        <a class="text-muted small add-to-compare-list" :class="active" @click.prevent="switchState()" data-toggle="tooltip" data-placement="top" title="">
-            <i v-waiting-animation="isLoading" class="fa fa-balance-scale"></i>
-            {{ trans("MykitchensCeresTheme::Template.singleItemCompareList") }}
-        </a>
-    </div>
-</script>
 <script>
     Vue.component("add-to-compare-list", {
 
@@ -117,4 +109,12 @@
             }
         }
     });
+</script>
+<script type="x/template" id="vue-add-to-compare-list">
+    <div class="col-xs-12">
+        <a class="text-muted small add-to-compare-list" :class="active" @click.prevent="switchState()" data-toggle="tooltip" data-placement="top" title="">
+            <i v-waiting-animation="isLoading" class="fa fa-balance-scale"></i>
+            {{ trans("MykitchensCeresTheme::Template.singleItemCompareList") }}
+        </a>
+    </div>
 </script>
