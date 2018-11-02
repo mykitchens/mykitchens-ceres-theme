@@ -20,16 +20,6 @@ data: function data() {
 },
 
 
-computed: _extends({
-    isVariationInCompareList: function isVariationInCompareList() {
-        return this.compareListIds.includes(this.variationId);
-    }
-}, Vuex.mapState({
-    compareListIds: function compareListIds(state) {
-        return state.compareList.compareListIds;
-    }
-})),
-
 watch: {
     isVariationInCompareList: function isVariationInCompareList() {
         this.changeTooltipText();
