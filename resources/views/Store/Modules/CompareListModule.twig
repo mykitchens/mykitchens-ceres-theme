@@ -43,7 +43,7 @@ this.ceresStore.registerModule('compareList', {
                 if (ids && ids[0]) {
                     commit("setcompareListIds", ids);
 
-                    _ApiService2.get("/rest/io/variations/", { variationIds: ids, template: "Ceres::compareList.compareList" }).done(function (data) {
+                    _ApiService2.get("/rest/io/variations/", { variationIds: ids, template: "MykitchensCeresTheme::compareList.compareList" }).done(function (data) {
                         commit("setcompareListItems", data.documents);
                         resolve(data);
                     }).fail(function (error) {
@@ -76,7 +76,8 @@ this.ceresStore.registerModule('compareList', {
                 });
             });
         },
-        addToCompareList: function addToCompareList(_ref4, id) {
+        addToCompareList: function addToCompareList(_ref4, id)
+            console.log(_ref4);
             var commit = _ref4.commit;
 
             return new Promise(function (resolve, reject) {
