@@ -10,14 +10,14 @@ var _ApiService2 = _interopRequireDefault(_ApiService);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-this.ceresstore.registerModule('compare', {
+this.ceresStore.registerModule('compareList', {
 
-    var state = {
+    state: {
         compareListIds: [],
         compareListItems: []
     };
 
-    var mutations = {
+    mutations: {
         setcompareListItems: function setcompareListItems(state, compareListItems) {
             state.compareListItems = compareListItems;
         },
@@ -42,7 +42,7 @@ this.ceresstore.registerModule('compare', {
         }
     };
 
-    var actions = {
+    actions: {
         initcompareListItems: function initcompareListItems(_ref, ids) {
             var commit = _ref.commit;
 
@@ -98,7 +98,7 @@ this.ceresstore.registerModule('compare', {
         }
     };
 
-    var getters = {
+    getters: {
         compareListCount: function compareListCount(state) {
             return state.compareListIds.length;
         }
