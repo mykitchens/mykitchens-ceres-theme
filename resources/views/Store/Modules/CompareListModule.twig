@@ -30,7 +30,7 @@ this.ceresStore.registerModule('compareList', {
         addCompareListItemToIndex: function addCompareListItemToIndex(state, compareListItem, index) {
             state.compareListItems.splice(index, 0, compareListItem);
         },
-        addCompareListId: function addCompareListId(state, id) {
+        addCompareListId(state, id) {
             state.compareListIds.push(id);
         }
     },

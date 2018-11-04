@@ -1,0 +1,16 @@
+<script type="x/template" id="vue-compare-list">
+
+    <div>
+        {% include "MykitchensCeresTheme::CompareList.Components.CompareList" %}
+
+        <transition name="compare-list-no-items-transition">
+            <p class="h4 text-muted compare-list-no-items-label" v-if="!compareListIds[0]">{{ trans("MykitchensCeresTheme::Template.compareListNoItems") }}</p>
+        </transition>
+
+        <div :class="{'loading': isLoading}">
+            {% include "Ceres::ItemList.Partials.LoadingAnimation" with { 'loadingAnimationType': config("Ceres.item.loading_animation_type") } %}
+        </div>
+
+    </div>
+
+</script>
