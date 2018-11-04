@@ -11,40 +11,40 @@ this.ceresStore.registerModule('compareList', {
     },
 
     mutations: {
-        setcompareListItems: function setcompareListItems(state, compareListItems) {
+        setCompareListItems: function setCompareListItems(state, compareListItems) {
             state.compareListItems = compareListItems;
         },
-        setcompareListIds: function setcompareListIds(state, compareListIds) {
+        setCompareListIds: function setCompareListIds(state, compareListIds) {
             state.compareListIds = compareListIds.map(Number);
         },
-        removecompareListItem: function removecompareListItem(state, compareListItem) {
+        removeCompareListItem: function removeCompareListItem(state, compareListItem) {
             state.compareListItems = state.compareListItems.filter(function (item) {
                 return item !== compareListItem;
             });
         },
-        removecompareListId: function removecompareListId(state, id) {
+        removeCompareListId: function removeCompareListId(state, id) {
             state.compareListIds = state.compareListIds.filter(function (compareListId) {
                 return compareListId !== id;
             });
         },
-        addcompareListItemToIndex: function addcompareListItemToIndex(state, compareListItem, index) {
+        addCompareListItemToIndex: function addCompareListItemToIndex(state, compareListItem, index) {
             state.compareListItems.splice(index, 0, compareListItem);
         },
-        addcompareListId(state, id) {
+        addCompareListId: function addCompareListId(state, id) {
             state.compareListIds.push(id);
         }
     },
 
     actions: {
-        initcompareListItems: function initcompareListItems(_ref, ids) {
+        initCompareListItems: function initCompareListItems(_ref, ids) {
             var commit = _ref.commit;
 
             return new Promise(function (resolve, reject) {
                 if (ids && ids[0]) {
-                    commit("setcompareListIds", ids);
+                    commit("setCompareListIds", ids);
 
                     _ApiService2.get("/rest/io/variations/", { variationIds: ids, template: "MykitchensCeresTheme::compareList.compareList" }).done(function (data) {
-                        commit("setcompareListItems", data.documents);
+                        commit("setCompareListItems", data.documents);
                         resolve(data);
                     }).fail(function (error) {
                         reject(error);
@@ -77,6 +77,7 @@ this.ceresStore.registerModule('compareList', {
             });
         },
         addToCompareList: function addToCompareList(_ref4, id) {
+
             var commit = _ref4.commit;
 
             return new Promise(function (resolve, reject) {
