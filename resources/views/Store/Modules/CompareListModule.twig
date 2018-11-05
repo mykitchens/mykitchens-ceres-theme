@@ -11,23 +11,23 @@ this.ceresStore.registerModule('compareList', {
     },
 
     mutations: {
-        setCompareListItems: function setCompareListItems(state, compareListItems) {
+        setCompareListItems(state, compareListItems) {
             state.compareListItems = compareListItems;
         },
-        setCompareListIds: function setCompareListIds(state, compareListIds) {
+        setCompareListIds(state, compareListIds) {
             state.compareListIds = compareListIds.map(Number);
         },
-        removeCompareListItem: function removeCompareListItem(state, compareListItem) {
+        removeCompareListItem(state, compareListItem) {
             state.compareListItems = state.compareListItems.filter(function (item) {
                 return item !== compareListItem;
             });
         },
-        removeCompareListId: function removeCompareListId(state, id) {
+        removeCompareListId(state, id) {
             state.compareListIds = state.compareListIds.filter(function (compareListId) {
                 return compareListId !== id;
             });
         },
-        addCompareListItemToIndex: function addCompareListItemToIndex(state, compareListItem, index) {
+        addCompareListItemToIndex(state, compareListItem, index) {
             state.compareListItems.splice(index, 0, compareListItem);
         },
         addCompareListId(state, id) {
@@ -36,7 +36,7 @@ this.ceresStore.registerModule('compareList', {
     },
 
     actions: {
-        initCompareListItems: function initCompareListItems(_ref, ids) {
+        initCompareListItems(_ref, ids) {
             var commit = _ref.commit;
 
             return new Promise(function (resolve, reject) {
@@ -54,7 +54,7 @@ this.ceresStore.registerModule('compareList', {
                 }
             });
         },
-        removeCompareListItem: function removeCompareListItem(_ref2, _ref3) {
+        removeCompareListItem(_ref2, _ref3) {
             var commit = _ref2.commit;
             var id = _ref3.id,
                 compareListItem = _ref3.compareListItem,
@@ -76,7 +76,7 @@ this.ceresStore.registerModule('compareList', {
                 });
             });
         },
-        addToCompareList: function addToCompareList(_ref4, id) {
+        addToCompareList(_ref4, id) {
 
             var commit = _ref4.commit;
 
@@ -93,7 +93,7 @@ this.ceresStore.registerModule('compareList', {
     },
 
     getters: {
-        compareListCount: function compareListCount(state) {
+        compareListCount(state) {
             return state.compareListIds.length;
         }
     }
